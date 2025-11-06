@@ -1,0 +1,1720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IAK-STEEM EDUCATION</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="./Images/idara logo.png" type="image/x-icon">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #1A144C;
+            --primary-accent: #01B7C5;
+            --secondary-gray: #7A7D7D;
+            --pure-white: #FFFFFF;
+            --light-bg: #f8f9fa;
+            --transition: all 0.4s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--pure-white);
+            color: var(--primary-dark);
+            overflow-x: hidden;
+            position: relative;
+            background: linear-gradient(135deg, rgba(26, 20, 76, 0.05) 0%, rgba(1, 183, 197, 0.05) 100%);
+        }
+
+        /* Component Animation */
+        .component-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .component {
+            position: absolute;
+            opacity: 0.15;
+            animation: float linear infinite;
+            pointer-events: none;
+            user-select: none;
+            transform-origin: center;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Animation Keyframes */
+        @keyframes float {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        @keyframes float-reverse {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+            }
+        }
+
+        /* Header Styles */
+        .nav-link {
+            color: #1A144C !important;
+            font-size: 16px;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.4s ease;
+        }
+
+        .nav-link:hover {
+            background-color: #01B7C5;
+            color: #ffffff !important;
+        }
+
+        .btn:hover {
+            background-color: transparent !important;
+            color: #01B7C5 !important;
+            border: 2px solid #01B7C5;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 20px 100px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h2 span {
+            color: var(--primary-accent);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--secondary-gray);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .secondary-button {
+            background-color: transparent;
+            color: var(--primary-dark);
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--primary-dark);
+        }
+
+        .secondary-button:hover {
+            background-color: var(--primary-dark);
+            color: var(--pure-white);
+        }
+
+        .why-choose-us {
+            padding: 100px 20px;
+            background-color: var(--light-bg);
+        }
+
+        .why-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .why-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .why-text h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+
+        .why-text h2 span {
+            color: var(--primary-accent);
+        }
+
+        .why-text p {
+            font-size: 1.1rem;
+            color: var(--secondary-gray);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .why-points {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .why-points li {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            color: var(--primary-dark);
+        }
+
+        .why-points i {
+            color: var(--primary-accent);
+            margin-right: 10px;
+        }
+
+        .why-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .why-image img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+        }
+
+
+        .steam-kits {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #f0f4f8 0%, #ffffff 100%);
+        }
+
+        .kit-icon {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .kits-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-dark);
+            position: relative;
+        }
+
+        .section-title span {
+            color: var(--primary-accent);
+        }
+
+        .kit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .kit-card {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .kit-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .kit-card img {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .kit-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .kit-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+
+        .kit-card p {
+            font-size: 1rem;
+            color: var(--secondary-gray);
+            margin-bottom: 25px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .kit-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: var(--primary-accent);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 15px rgba(1, 183, 197, 0.3);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .kit-btn:hover {
+            background-color: var(--primary-dark);
+            color: #fff;
+        }
+
+
+        /*Steam Projects*/
+        .kits-projects {
+            padding: 80px 20px;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+
+        .kits-projects-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: 0.3s ease;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .project-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #1a144c;
+        }
+
+        .project-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 25px;
+            background-color: #01b7c5;
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s ease;
+            width: 100%;
+        }
+
+
+        /*STEAM guider*/
+        /* Alternate Steam Guider Section */
+        .steam-guider-alt {
+            padding: 80px 20px;
+            background-color: #f9f9f9;
+        }
+
+        .steam-guider-container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .guider-horizontal-card {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+            margin-bottom: 30px;
+            gap: 25px;
+            transition: 0.3s ease;
+        }
+
+        .guider-horizontal-card img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #01b7c5;
+        }
+
+        .guider-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: #1a144c;
+        }
+
+        .guider-role {
+            color: #01b7c5;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .guider-desc {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .guider-btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: #01b7c5;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .guider-btn:hover {
+            background-color: transparent;
+            color: #01b7c5;
+            border: 2px solid #01b7c5;
+        }
+
+        /* Responsive Layout */
+        @media (max-width: 768px) {
+            .guider-horizontal-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .guider-horizontal-card img {
+                margin-bottom: 15px;
+            }
+        }
+
+
+        /*our steam team*/
+        /* Our STEAM Team */
+        .steam-team {
+            padding: 80px 20px;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .steam-team-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px 15px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 4px solid #01b7c5;
+        }
+
+        .team-card h3 {
+            font-size: 1.2rem;
+            color: #1a144c;
+            margin-bottom: 5px;
+        }
+
+        .team-role {
+            color: #01b7c5;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .team-desc {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 40px 20px;
+            background: #f7f7f7;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .testimonial-container {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-card {
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+        }
+
+        .testimonial-card.active {
+            display: flex;
+        }
+
+        .testimonial-text {
+            text-align: left;
+            max-width: 70%;
+        }
+
+        .testimonial-text p {
+            margin: 0 0 10px;
+            color: #444;
+        }
+
+        .testimonial-text h4 {
+            margin: 0;
+            color: #222;
+        }
+
+        .course {
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        .student-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-left: 20px;
+        }
+
+        .testimonial-nav {
+            margin-top: 20px;
+        }
+
+        .testimonial-nav button {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .testimonial-nav button:hover {
+            background: #555;
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-card {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .testimonial-text {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .student-photo {
+                margin: 20px auto 0;
+            }
+        }
+
+        /* New Testimonials Carousel Section */
+        .testimonials-carousel {
+            padding: 80px 20px;
+            background-color: #f8f9fa;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-dark);
+            text-align: center;
+        }
+
+        .section-title span {
+            color: var(--primary-accent);
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin: 0 20px;
+            position: relative;
+            transition: transform 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .quote-icon {
+            font-size: 3rem;
+            color: var(--primary-accent);
+            opacity: 0.2;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-content {
+            font-size: 1.1rem;
+            color: var(--secondary-gray);
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .student-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .student-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-accent);
+            margin-bottom: 15px;
+        }
+
+        .student-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+
+        .student-course {
+            color: var(--primary-accent);
+            font-weight: 500;
+        }
+
+        .stars {
+            color: #FFD700;
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 15px;
+        }
+
+        .carousel-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-btn:hover {
+            background: var(--primary-dark);
+            transform: scale(1.1);
+        }
+
+        .carousel-indicators {
+            position: relative;
+            bottom: 0;
+            margin-top: 30px;
+        }
+
+        .carousel-indicators button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--secondary-gray);
+            border: none;
+            margin: 0 5px;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-indicators .active {
+            background-color: var(--primary-accent);
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        .testimonial-bg-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .testimonial-element {
+            position: absolute;
+            opacity: 0.05;
+            font-size: 8rem;
+            color: var(--primary-accent);
+            transform: rotate(-20deg);
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-card {
+                padding: 30px 20px;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--pure-white);
+            padding: 70px 20px 30px;
+            position: relative;
+            z-index: 2;
+            margin-top: 80px;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0,10 Q50,0 100,10 Z" fill="%231A144C"/></svg>');
+            background-size: 100% 100%;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-accent);
+        }
+
+        .footer-col p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--pure-white);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-accent);
+            transform: translateY(-5px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a i {
+            margin-right: 10px;
+            color: var(--primary-accent);
+            width: 20px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-accent);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            nav {
+                margin: 20px 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 8px 0;
+            }
+
+            .hero {
+                padding: 150px 20px 80px;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .features-content {
+                flex-direction: column;
+            }
+
+            .features-text {
+                order: 2;
+                text-align: center;
+            }
+
+            .features-image {
+                order: 1;
+            }
+
+            .course-grid,
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .logo h1 {
+
+            font-size: 37px;
+        }
+
+        .logo-img {
+            height: 40px;
+            /* Adjust height as needed */
+            width: auto;
+            display: block;
+        }
+
+        header {
+            width: 100%;
+            background-color: #fff;
+            /* or your desired background */
+            padding: 0px 0;
+            /* optional padding */
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            /* vertically centers logo and nav */
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 0 10px;
+        }
+
+        .logo-img {
+            height: 80px;
+            /* Adjust to your desired size */
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Optional: Ensure nav items don't overflow */
+        nav ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .cta-button {
+            padding: 10px 20px;
+            background-color: #01b7c5;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            /* Adjust height as needed */
+            width: auto;
+            display: block;
+        }
+
+        header {
+            width: 100%;
+            background-color: #fff;
+            /* or your desired background */
+            padding: 0px 0;
+            /* optional padding */
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            /* vertically centers logo and nav */
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 0 10px;
+        }
+
+        .logo-img {
+            height: 80px;
+            /* Adjust to your desired size */
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Optional: Ensure nav items don't overflow */
+        nav ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .cta-button {
+            padding: 10px 20px;
+            background-color: #01b7c5;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Component Animation -->
+    <div class="component-animation" id="componentAnimation"></div>
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg fixed-top shadow-sm bg-white"
+        style="padding: 15px 0; background-color: rgba(255, 255, 255, 0.95);">
+        <div class="container-fluid px-4">
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="./IAK STEAM DP.jpg" alt="IAK-STEEM Logo" class="me-2"
+                    style="height: 80px; max-height: 80px; object-fit: contain; display: block; margin-top: -20px; margin-bottom: -20px;">
+            </a>
+
+            <!-- Toggler -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
+                <ul class="navbar-nav mb-2 mb-lg-0 align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium" href="./index (1).html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium" href="./documentation.html">Documentation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium" href="./shop.html">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium" href="./about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium" href="./contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium" href="./FAQs.html">FAQs</a>
+                    </li>
+                </ul>
+
+                <!-- Enroll Now Button -->
+                <a href="#" class="btn ms-lg-3 mt-3 mt-lg-0 px-4"
+                    style="background-color: #01B7C5; color: #fff; border-radius: 30px; font-weight: 600; border: 2px solid #01B7C5;">
+                    Enroll Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>Transform Your Future with <span>IAK-STEAM Education</span></h2>
+            <p>Unlock your potential with our cutting-edge educational programs designed to empower students for the
+                challenges of tomorrow.</p>
+            <div class="hero-buttons">
+                <a href="#" class="cta-button">Explore Courses</a>
+                <a href="#" class="secondary-button">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us" id="why">
+        <div class="why-container">
+            <div class="why-text">
+                <h2>Why <span>Choose Us</span></h2>
+                <p>IAK-STEEM Education stands out by blending modern teaching methods with hands-on experience. We don’t
+                    just teach, we inspire creativity, innovation, and real-world problem solving.</p>
+                <ul class="why-points">
+                    <li><i class="fas fa-check-circle"></i> Hands-on electronics and programming training</li>
+                    <li><i class="fas fa-check-circle"></i> Industry-relevant and future-proof skills</li>
+                    <li><i class="fas fa-check-circle"></i> Interactive learning experience with projects</li>
+                    <li><i class="fas fa-check-circle"></i> Supportive and expert instructors</li>
+                </ul>
+            </div>
+            <div class="why-image">
+                <img src="./why choose us.png" alt="Why Choose Us">
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Our STEAM Kits Section -->
+    <section class="steam-kits" id="kits">
+        <div class="kits-container">
+            <h2 class="section-title">Our <span>STEAM Kits</span></h2>
+            <div class="kit-grid">
+
+                <!-- Card 1: LEGO Motion-Essential -->
+                <div class="kit-card">
+                    <img class="kit-icon" src="./motion essential.jpg" alt="LEGO Motion-Essential">
+                    <h3>LEGO Motion-Essential Kit</h3>
+                    <p>Hands-on kit for understanding gears, levers, axles, and pulleys through simple LEGO mechanisms.
+                    </p>
+                    <a href="#" class="kit-btn">View Kit</a>
+                </div>
+
+                <!-- Card 2: LEGO Motion-Prime -->
+                <div class="kit-card">
+                    <img class="kit-icon" src="./motion prime.jpg" alt="LEGO Motion-Prime">
+                    <h3>LEGO Motion-Prime Kit</h3>
+                    <p>Advanced LEGO education set with sensors, motors, and programming tools to build complex
+                        machines.</p>
+                    <a href="#" class="kit-btn">View Kit</a>
+                </div>
+
+                <!-- Card 3: Alloly Building Blocks -->
+                <div class="kit-card">
+                    <img class="kit-icon" src="./alolly building block.png" alt="Alloly Kit">
+                    <h3>Alloly Building Blocks Kit</h3>
+                    <p>STEM-focused metallic construction set to develop structural design, mechanics, and innovation
+                        skills.</p>
+                    <a href="#" class="kit-btn">View Kit</a>
+                </div>
+
+                <!-- Card 4: Arduino UNO Starter -->
+                <div class="kit-card">
+                    <img class="kit-icon" src="./Arduino UNO kit.png" alt="Arduino Kit">
+                    <h3>Arduino UNO Starter Kit</h3>
+                    <p>Perfect for beginners in electronics & coding — includes Arduino board, sensors, LEDs, and
+                        breadboard.</p>
+                    <a href="#" class="kit-btn">View Kit</a>
+                </div>
+
+                <!-- Card 5: Actuators Kit -->
+                <div class="kit-card">
+                    <img class="kit-icon" src="./solor robot.png" alt="Actuators Kit">
+                    <h3>Solar Robot Kit</h3>
+                    <p>Learn how actuators convert energy into motion for robotics, automation, and physical computing.
+                    </p>
+                    <a href="#" class="kit-btn">View Kit</a>
+                </div>
+
+                <!-- Card 6: Mindstorms EV3 -->
+                <div class="kit-card">
+                    <img class="kit-icon" src="./EV3.png" alt="Mindstorms EV3">
+                    <h3>Mindstorms EV3 Robotics Kit</h3>
+                    <p>LEGO’s programmable robotics platform for building and coding intelligent robots with sensors &
+                        motors.</p>
+                    <a href="#" class="kit-btn">View Kit</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Our STEAM Kits Projects Section -->
+    <section class="kits-projects" id="kits-projects">
+        <div class="kits-projects-container">
+            <h2 class="section-title">Our <span>STEAM Projects</span></h2>
+            <div class="project-grid">
+                <!-- Card 1 -->
+                <div class="project-card">
+                    <img src="./free through.webp" alt="Line Following Robot">
+                    <div class="project-btn">Free Through</div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="project-card">
+                    <img src="./propeller car.jpg" alt="Smart Dustbin">
+                    <div class="project-btn">Land Yatch</div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="project-card">
+                    <img src="./solor robot.jpg" alt="Automatic Street Light">
+                    <div class="project-btn">Solar Robot</div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="project-card">
+                    <img src="./Alloly Building.png" alt="Obstacle Avoiding Car">
+                    <div class="project-btn">Water Automation</div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="project-card">
+                    <img src="./color sorter.jpg" alt="Soil Moisture Sensor">
+                    <div class="project-btn">Excavators</div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="project-card">
+                    <img src="./antigravity.webp" alt="Smart Home System">
+                    <div class="project-btn">Gyro Boy</div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="project-card">
+                    <img src="./website.jpg" alt="Soil Moisture Sensor">
+                    <div class="project-btn">Website Development</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Our STEAM Guider Section (Horizontal Layout) -->
+    <section class="steam-guider-alt" id="steam-guider">
+        <div class="steam-guider-container">
+            <h2 class="section-title" style="text-align: center;">Our <span>STEAM Guiders</span></h2>
+
+            <!-- Guider 1 -->
+            <div class="guider-horizontal-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/4140/4140051.png" alt="Female Guider">
+                <div class="guider-info">
+                    <h3>Ms. Saba Sheikh</h3>
+                    <p class="guider-role">Innovation & Kit Strategist</p>
+                    <p class="guider-desc">She provides innovative STEAM ideas, and
+                        inspires her team through hands-on integration strategies.</p>
+                    <a href="#" class="guider-btn">Connect</a>
+                </div>
+            </div>
+
+            <!-- Guider 2 -->
+            <div class="guider-horizontal-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/4140/4140037.png" alt="Guider 2">
+                <div class="guider-info">
+                    <h3>Mr. Saad Sheikh</h3>
+                    <p class="guider-role">STEAM Project Mentor</p>
+                    <p class="guider-desc">A dedicated guide who supports project development, shares STEAM resources,
+                        and motivates the team through real-world problem-solving.</p>
+                    <a href="#" class="guider-btn">Connect</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Our STEAM Team Section -->
+    <section class="steam-team" id="steam-team">
+        <div class="steam-team-container">
+            <h2 class="section-title">Our <span>STEAM Team</span></h2>
+            <div class="team-grid">
+
+                <!-- Member 1: Team Lead -->
+                <div class="team-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4140/4140037.png" alt="Team Leader">
+                    <h3>M Ahmed Khan</h3>
+                    <p class="team-role">Head of STEAM – Campus 1</p>
+                    <p class="team-desc">Leads and trains the entire STEAM team across campuses. Oversees the design and
+                        implementation of STEAM curriculum and kits.</p>
+                </div>
+
+                <!-- Member 2 -->
+                <div class="team-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4140/4140057.png" alt="Team Member">
+                    <h3>Mr. Liaquat</h3>
+                    <p class="team-role">STEAM Teacher – Campus 6</p>
+                    <p class="team-desc">Teaches hands-on STEAM lessons, guiding students through innovation-based
+                        activities and creative projects.</p>
+                </div>
+
+                <!-- Member 3 -->
+                <div class="team-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4140/4140051.png" alt="Team Member">
+                    <h3>Rimsha</h3>
+                    <p class="team-role">STEAM Teacher – Campus 8</p>
+                    <p class="team-desc">Specializes in coding and robotics, using kits to spark curiosity and
+                        problem-solving in students.</p>
+                </div>
+
+                <!-- Member 4 -->
+                <div class="team-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4140/4140036.png" alt="Team Member">
+                    <h3>Areeba Khan</h3>
+                    <p class="team-role">STEAM Teacher – Campus 1</p>
+                    <p class="team-desc">Delivers STEM lessons and integrates engineering and tech tools into classroom
+                        learning.</p>
+                </div>
+
+                <!-- Member 5 -->
+                <div class="team-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" alt="Team Member">
+                    <h3>Mr. Shoaib</h3>
+                    <p class="team-role">STEAM Teacher – Campus 1</p>
+                    <p class="team-desc">Leads students in programming, mechanical design, and applying STEAM concepts
+                        practically.</p>
+                </div>
+
+                <!-- Member 6 -->
+                <div class="team-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4140/4140052.png" alt="Team Member">
+                    <h3>Ishaq</h3>
+                    <p class="team-role">Trainee – Campus 4</p>
+                    <p class="team-desc">Currently learning STEAM education practices and implementing activities under
+                        the guidance of the team lead.</p>
+                </div>
+
+                <!-- Member 7 -->
+                <div class="team-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/219/219970.png" alt="Team Member">
+                    <h3>Shahidullah</h3>
+                    <p class="team-role">Trainee – Campus 1</p>
+                    <p class="team-desc">Gaining hands-on experience in teaching STEAM subjects while actively following
+                        expert guidance and support.</p>
+                </div>
+                <!-- Member 8 -->
+                <div class="team-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" alt="Team Member">
+                    <h3>Malik Owais Atta</h3>
+                    <p class="team-role">STEAM Teacher – Campus 1</p>
+                    <p class="team-desc">Passionate about integrating technology and creativity, guiding students to
+                        think critically and innovate through hands-on learning.</p>
+                </div>
+
+                <!-- Member 9 -->
+                <div class="team-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4140/4140061.png" alt="Team Member">
+                    <h3>M Unzaib Rizwan</h3>
+                    <p class="team-role">STEAM Teacher – Campus 4</p>
+                    <p class="team-desc">Encourages young learners to explore science and robotics, fostering teamwork,
+                        curiosity, and innovation in every class.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Testimonials Carousel Section -->
+    <section class="testimonials-carousel">
+        <div class="testimonial-bg-elements">
+            <div class="testimonial-element" style="top: 10%; left: 5%;">❝</div>
+            <div class="testimonial-element" style="bottom: 15%; right: 5%;">❞</div>
+        </div>
+
+        <div class="testimonials-container">
+            <h2 class="section-title">Student <span>Testimonials</span></h2>
+
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Testimonial 1 -->
+                    <div class="carousel-item active">
+                        <div class="testimonial-card">
+                            <div class="student-info">
+                                <img src="https://cdn-icons-png.flaticon.com/512/4140/4140036.png" alt="Team Member"
+                                    height="100px">
+                                alt="Ayesha Khan" class="student-image">
+                                <h3 class="student-name">Syeda Fatima</h3>
+                                <p class="student-course">Robotics & Automation Program</p>
+                            </div>
+                            <p class="testimonial-content">
+                                "The Robotics & Automation program teachs you how to desgin, control , and automatics
+                                robots using mordern tools .Spread the world and invite other to join----it's time to
+                                build future togethers"
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="carousel-item">
+                        <div class="testimonial-card">
+                            <div class="student-info">
+                                <img src="https://cdn-icons-png.flaticon.com/512/4140/4140036.png" alt="Team Member"
+                                    height="100px">
+                                <h3 class="student-name">Fatima Noor</h3>
+                                <p class="student-course">Electronics & IoT Program</p>
+                            </div>
+                            <p class="testimonial-content">
+                                "Join theElectronics and IOT program to explore the world of smart tecnology!Learn how
+                                to create amazing projects like robots and connected devices. It's perfect for student
+                                who love innovation and want a future in tech don't miss the chance----get enrooled and
+                                bring your ideas to life! "
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="carousel-item">
+                        <div class="testimonial-card">
+                            <div class="student-info">
+                                <img src="https://cdn-icons-png.flaticon.com/512/4140/4140036.png" alt="Team Member"
+                                    height="100px">
+                                <h3 class="student-name">Abeera Zaheer</h3>
+                                <p class="student-course">Sustainable Engineering Program</p>
+                            </div>
+                            <p class="testimonial-content">
+                                "The Sustainable Engineering Program is a good for us .lt empowers students to create
+                                innovative,eco-friendly solutions a perfect blend to technology and responsibility for a
+                                better future."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carousel Controls -->
+                <div class="carousel-controls">
+                    <button class="carousel-btn" type="button" data-bs-target="#testimonialCarousel"
+                        data-bs-slide="prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn" type="button" data-bs-target="#testimonialCarousel"
+                        data-bs-slide="next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Indicators -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>About IAK-STEEM</h3>
+                <p>We're dedicated to providing high-quality STEAM education that empowers individuals to achieve their
+                    career goals and make a positive impact in the world.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#features"><i class="fas fa-book"></i> Documentation</a></li>
+                    <li><a href="#courses"><i class="fas fa-shopping-cart"></i> Shop</a></li>
+                    <li><a href="#components"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="#testimonials"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="#faqs"><i class="fas fa-question-circle"></i> FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Popular Courses</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-robot"></i> Robotics & Automation</a></li>
+                    <li><a href="#"><i class="fas fa-microchip"></i> Internet of Things</a></li>
+                    <li><a href="#"><i class="fas fa-code"></i> Arduino Programming</a></li>
+                    <li><a href="#"><i class="fas fa-bolt"></i> Electronics Fundamentals</a></li>
+                    <li><a href="#"><i class="fas fa-laptop-code"></i> Embedded Systems</a></li>
+                    <li><a href="#"><i class="fas fa-paint-brush"></i> Tech-Integrated Arts</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Education Avenue, Karachi, Pakistan</p>
+                <p><i class="fas fa-phone"></i> +92 300 1234567</p>
+                <p><i class="fas fa-envelope"></i> info@iak-steem.edu.pk</p>
+                <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 5:00 PM</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 IAK-STEEM EDUCATION. All Rights Reserved. Empowering Minds Through Innovation</p>
+        </div>
+    </footer>
+
+    <script>
+        // Generate animated components with educational elements
+        function createAnimatedComponents() {
+            const container = document.getElementById('componentAnimation');
+            const componentTypes = [
+                {
+                    name: 'motion-essential',
+                    src: 'https://cdn-icons-png.flaticon.com/512/1496/1496031.png', // Robot icon for Motion Essential Kit
+                    width: 80,
+                    height: 80
+                },
+                {
+                    name: 'motion-brickit',
+                    src: 'https://cdn-icons-png.flaticon.com/512/1358/1358023.png', // Blocks icon for Motion Brickit
+                    width: 70,
+                    height: 70
+                },
+                {
+                    name: 'web-dev',
+                    src: 'https://cdn-icons-png.flaticon.com/512/1006/1006361.png', // Code icon for Web Development
+                    width: 70,
+                    height: 70
+                },
+                {
+                    name: 'scratch-blocks',
+                    src: 'https://cdn-icons-png.flaticon.com/512/3094/3094874.png', // Puzzle icon for Scratch Blocks
+                    width: 70,
+                    height: 70
+                },
+                {
+                    name: 'arduino',
+                    src: 'https://cdn-icons-png.flaticon.com/512/3094/3094876.png',
+                    width: 80,
+                    height: 60
+                },
+                {
+                    name: 'breadboard',
+                    src: 'https://cdn-icons-png.flaticon.com/512/3094/3094875.png',
+                    width: 80,
+                    height: 60
+                },
+                {
+                    name: 'resistor',
+                    src: 'https://cdn-icons-png.flaticon.com/512/3094/3094879.png',
+                    width: 60,
+                    height: 30
+                },
+                {
+                    name: 'capacitor',
+                    src: 'https://cdn-icons-png.flaticon.com/512/3094/3094878.png',
+                    width: 40,
+                    height: 60
+                }
+            ];
+
+            // Create 50 components
+            for (let i = 0; i < 50; i++) {
+                const compType = componentTypes[Math.floor(Math.random() * componentTypes.length)];
+                const component = document.createElement('div');
+                component.className = 'component';
+
+                // Set background image
+                component.style.backgroundImage = `url(${compType.src})`;
+
+                // Set random position
+                const left = Math.random() * 100;
+                component.style.left = `${left}%`;
+
+                // Set random size variation
+                const sizeScale = 0.6 + Math.random() * 0.8;
+                component.style.width = `${compType.width * sizeScale}px`;
+                component.style.height = `${compType.height * sizeScale}px`;
+
+                // Set random opacity
+                const opacity = 0.1 + Math.random() * 0.1;
+                component.style.opacity = opacity;
+
+                // Set random animation duration and delay
+                const duration = 15 + Math.random() * 10; // 15-45 seconds
+                const delay = Math.random() * 8; // 0-8 seconds delay
+                component.style.animationDuration = `${duration}s`;
+                component.style.animationDelay = `${delay}s`;
+
+                // Randomly reverse animation direction for some components
+                if (Math.random() > 0.7) {
+                    component.style.animationName = 'float-reverse';
+                }
+
+                container.appendChild(component);
+            }
+        }
+
+        // Interactive Counter Animation
+        document.addEventListener('DOMContentLoaded', function () {
+            // Create animated components
+            createAnimatedComponents();
+
+            // Stats counter animation
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200;
+
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText.replace('+', '').replace('%', '');
+                    const increment = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment) +
+                            (counter.id === 'studentsCount' ? '+' :
+                                counter.id === 'successRate' ? '%' : '');
+                        setTimeout(updateCount, 10);
+                    } else {
+                        counter.innerText = target +
+                            (counter.id === 'studentsCount' ? '+' :
+                                counter.id === 'successRate' ? '%' : '');
+                    }
+                };
+
+                // Set initial data targets
+                if (counter.id === 'studentsCount') counter.setAttribute('data-target', '5000');
+                if (counter.id === 'coursesCount') counter.setAttribute('data-target', '50');
+                if (counter.id === 'instructorsCount') counter.setAttribute('data-target', '120');
+                if (counter.id === 'successRate') counter.setAttribute('data-target', '98');
+
+                counter.innerText = '0' + (counter.id === 'successRate' ? '%' : '');
+                updateCount();
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Interactive course cards
+            const courseCards = document.querySelectorAll('.course-card');
+            courseCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-15px)';
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Header scroll effect
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+                    header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                } else {
+                    header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
+                    header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                }
+            });
+        });
+        // Initialize the carousel
+        const testimonialCarousel = new bootstrap.Carousel(document.getElementById('testimonialCarousel'), {
+            interval: 5000, // Change slide every 5 seconds
+            wrap: true
+        });
+
+        // Add active class to indicators
+        document.querySelectorAll('.carousel-indicators button').forEach((button, index) => {
+            button.addEventListener('click', function () {
+                document.querySelectorAll('.carousel-indicators button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Update indicators on slide
+        document.getElementById('testimonialCarousel').addEventListener('slid.bs.carousel', function () {
+            const activeIndex = Array.from(this.querySelectorAll('.carousel-item')).findIndex(item =>
+                item.classList.contains('active')
+            );
+
+            document.querySelectorAll('.carousel-indicators button').forEach((button, index) => {
+                if (index === activeIndex) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+            });
+        });
+    </script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
